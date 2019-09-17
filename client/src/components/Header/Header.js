@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
 
+//TODO add unit tests
 export default class Header extends Component {
     constructor(props) {
         super(props);
 
         this.state = {isLoggedIn: false};
         this.login = this.login.bind(this);
-        this.logout = this.logout.bind(this)
+        this.logout = this.logout.bind(this);
+        // Ideally these styles would be in their own module but this app doesn't have a module loader. We should add a module loader such as webpack
+        this.loginStyle = {
+            'background-color': '#7693D7',
+            'border-radius': '5px',
+            'box-shadow': 'rgba(103, 206, 206, 1)',
+            color: 'white',
+            'font': 'bold 14px Open Sans, sans-serif'
+        };
+        this.headerStyle = {
+            display: 'flex',
+            'justify-content': 'flex-end',
+            'flex-basis': '100%',
+            padding: '1px',
+        };
     }
 
     /**
@@ -31,12 +46,12 @@ export default class Header extends Component {
         const isLoggedIn = this.state.isLoggedIn;
         let button;
         if (isLoggedIn) {
-            button = <button className="login" onClick={this.logout}>Logout</button>
+            button = <button style={this.loginStyle} onClick={this.logout}>Logout</button>
         } else {
-            button = <button className="login" onClick={this.login}>Login</button>
+            button = <button style={this.loginStyle} onClick={this.login}>Login</button>
         }
         return (
-            <div id="store-header">{button}</div>
+            <header style={this.headerStyle}>{button}</header>
         )
     }
 }
