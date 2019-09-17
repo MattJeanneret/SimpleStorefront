@@ -26,8 +26,15 @@ class HeaderComponent extends React.Component {
     }
     render() {
         //TODO add logic to check if the user is logged in or out and changed the name and function on the button
+        const isLoggedIn = this.isLoggedIn;
+        let button;
+        if (isLoggedIn) {
+            button = <button class="login" onclick={this.logout}>Logout</button>
+        } else {
+            button = <button class="login" onclick={this.login}>Login</button>
+        }
         return (
-            <div id="store-header"><button id="login" onclick={this.login}>Login</button></div>
+            <div id="store-header">{button}</div>
         )
     }
 }
