@@ -18,6 +18,11 @@ import * as serviceWorker from './serviceWorker';
 import Welcome from './Welcome';
 import Header from './components/Header/Header';
 
+import * as ingredientRoutes from './routes/ingredient'
+import * as productRoutes from './routes/product'
+import * as recipeRoutes from './routes/recipe'
+import * as recipeingredientRoutes from './routes/recipeingredient'
+
 const history = createBrowserHistory();
 const store = createStore(
   combineReducers({
@@ -34,7 +39,10 @@ ReactDOM.render(
       <Header></Header>
       <Switch>
         <Route path="/" component={Welcome} strict={true} exact={true}/>
-        {/* Add your routes here */}
+        <ingredientRoutes></ingredientRoutes>
+        <productRoutes></productRoutes>
+        <recipeRoutes></recipeRoutes>
+        <recipeingredientRoutes></recipeingredientRoutes>
         <Route render={() => <h1>Not Found</h1>} />
       </Switch>
     </ConnectedRouter>
