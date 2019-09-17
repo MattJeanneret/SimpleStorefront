@@ -10,16 +10,16 @@ export default class Header extends Component {
         this.logout = this.logout.bind(this);
         // Ideally these styles would be in their own module but this app doesn't have a module loader. We should add a module loader such as webpack
         this.loginStyle = {
-            'background-color': '#7693D7',
-            'border-radius': '5px',
-            'box-shadow': 'rgba(103, 206, 206, 1)',
+            'backgroundColor': '#7693D7',
+            'borderRadius': '5px',
+            'boxShadow': 'rgba(103, 206, 206, 1)',
             color: 'white',
             'font': 'bold 14px Open Sans, sans-serif'
         };
         this.headerStyle = {
             display: 'flex',
-            'justify-content': 'flex-end',
-            'flex-basis': '100%',
+            'justifyContent': 'flex-end',
+            'flexBasis': '100%',
             padding: '1px',
         };
     }
