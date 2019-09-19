@@ -17,7 +17,10 @@ import * as serviceWorker from './serviceWorker';
 // Import your reducers and routes here
 import Welcome from './Welcome';
 import Header from './components/Header/Header';
-import { List, Create, Update, Show } from './components/ingredient/';
+import ingredientRoutes from './routes/ingredient';
+import productRoutes from './routes/product';
+import recipeRoutes from './routes/recipe';
+import ingredientRecipeRoutes from './routes/recipeingredient';
 
 const history = createBrowserHistory();
 const store = createStore(
@@ -35,7 +38,10 @@ ReactDOM.render(
       <Header></Header>
       <Switch>
         <Route path="/" component={Welcome} strict={true} exact={true}/>
-        <Route path="/ingredients/" component={List} exact strict key="list" />
+        {ingredientRoutes}
+        {productRoutes}
+        {recipeRoutes}
+        {ingredientRecipeRoutes}
         <Route render={() => <h1>Not Found</h1>} />
       </Switch>
     </ConnectedRouter>
