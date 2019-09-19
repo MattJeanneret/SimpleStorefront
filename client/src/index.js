@@ -17,6 +17,10 @@ import * as serviceWorker from './serviceWorker';
 // Import your reducers and routes here
 import Welcome from './Welcome';
 import Header from './components/Header/Header';
+import ingredientReducers from './reducers/ingredient/index';
+import productReducers from './reducers/product/index';
+import recipeReducers from './reducers/recipe/index';
+import recipeingredientReducers from './reducers/recipeingredient/index';
 import ingredientRoutes from './routes/ingredient';
 import productRoutes from './routes/product';
 import recipeRoutes from './routes/recipe';
@@ -27,6 +31,10 @@ const store = createStore(
   combineReducers({
     router: connectRouter(history),
     form,
+    ingredientReducers,
+    productReducers,
+    recipeReducers,
+    recipeingredientReducers
     /* Add your reducers here */
   }),
   applyMiddleware(routerMiddleware(history), thunk)
