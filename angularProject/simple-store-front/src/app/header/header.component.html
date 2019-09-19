@@ -1,0 +1,8 @@
+<div class="header">
+    <ng-container *ngIf="isLoggedIn">
+        <button class="login" (click)=logout()>Logout</button>
+    </ng-container>
+    <ng-container *ngIf="!isLoggedIn">
+        <button class="login" (click)=login()>Login</button>
+    </ng-container>
+</div>
