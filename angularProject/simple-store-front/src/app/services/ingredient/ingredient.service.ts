@@ -9,7 +9,10 @@ export class IngredientService {
 
   constructor(private _http: HttpClient) { }
 
+  /**
+   * Gets ingredients from the server
+   */
   public getIngredients(): Observable<IIngredient[]> {
-    return this._http.get<IIngredient[]>(`http://192.168.33.25/api/ingredients`);
+    return this._http.get<IIngredient[]>(`http://localhost:4200/assets/ingredients.json`);
   }
 }

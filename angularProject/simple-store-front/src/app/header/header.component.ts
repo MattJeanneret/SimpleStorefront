@@ -34,7 +34,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
    * Logs in the user
    */
   public login(): void {
-    console.log("hi");
     this._loginService.login();
   }
 

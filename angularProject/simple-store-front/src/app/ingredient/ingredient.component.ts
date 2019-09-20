@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { IngredientService } from '../services/ingredient/ingredient.service';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, Input } from '@angular/core';
 import { IIngredient } from '../interface/IIngredient';
 
 @Component({
@@ -8,22 +6,10 @@ import { IIngredient } from '../interface/IIngredient';
   templateUrl: './ingredient.component.html',
   styleUrls: ['./ingredient.component.scss']
 })
-export class IngredientComponent implements OnInit {
+export class IngredientComponent  {
 
-  private _subscription: Subscription;
+  @Input() ingredient: IIngredient;
 
-  public ingredients: IIngredient[];
-
-  constructor(private _ingredientService: IngredientService) { }
-
-  /**
-   * Load all the ingredients
-   */
-  ngOnInit() {
-    //TODO move this to a resolver so it is loaded before the page is loaded
-    this._subscription = this._ingredientService.getIngredients().subscribe((ingredients: IIngredient[]) => {
-      this.ingredients = ingredients;
-    })
-  }
+  constructor() { }
 
 }

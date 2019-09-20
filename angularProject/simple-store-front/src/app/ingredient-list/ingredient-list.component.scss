@@ -1,0 +1,17 @@
+h2 {
+    margin: auto;
+    text-align: center;
+    padding-bottom: 2%;
+}
+span {
+    text-align:center;
+}
+.container {
+    margin-left: 25%;
+    margin-right: 25%;
+    mat-expansion-panel {
+        mat-expansion-panel-header {
+            text-align: center;
+        }
+    }
+}

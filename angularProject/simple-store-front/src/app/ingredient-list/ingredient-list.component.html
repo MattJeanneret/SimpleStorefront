@@ -1,0 +1,14 @@
+<h2>Ingredient List</h2>
+<div class="container">
+    <mat-expansion-panel *ngFor="let ingredient of ingredients">
+            <mat-expansion-panel-header>
+                {{ingredient.name}}
+            </mat-expansion-panel-header>
+            <mat-list>
+                <mat-list-item>price: {{ingredient.price | currency}}</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>stock: {{ingredient.stock}} {{ingredient.measure}}</mat-list-item>
+            </mat-list>
+    </mat-expansion-panel>
+
+</div>
