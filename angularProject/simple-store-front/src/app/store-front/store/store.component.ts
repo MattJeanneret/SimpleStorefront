@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IProduct } from '../interfaces/IProduct';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -21,6 +21,8 @@ export class StoreComponent implements OnInit, OnDestroy {
   // Subscription to the activated route
   private _subscription: Subscription;
 
+
+  private _resetSubject: Subject<void> = new Subject<void>();
   //inject activated route into the component
   constructor(private _route: ActivatedRoute) { }
 
@@ -53,6 +55,8 @@ export class StoreComponent implements OnInit, OnDestroy {
    */
   public reset(): void {
     this._cart = new Map<String, IProduct[]>();
+    this._resetSubject.next();
+    this.totalCost = 0;
   }
 
   public onAdded(product: IProduct): void {

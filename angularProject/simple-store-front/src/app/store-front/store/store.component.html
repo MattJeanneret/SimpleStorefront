@@ -2,7 +2,12 @@
 <mat-card>
     <mat-card-title>Select an option to add to your Order</mat-card-title>
     <mat-card-content>
-            <app-product *ngFor="let product of products" [product]="product" (added)="onAdded($event)"></app-product>
+            <app-product *ngFor="let product of products" [product]="product" [resetEvent]="_resetSubject.asObservable()" (added)="onAdded($event)"></app-product>
     </mat-card-content>
-    <div>Total: {{totalCost | currency}}</div>
+    <div class="total">Total: {{totalCost | currency}}</div>
+    <div class="container">
+        <button mat-raised-button color="primary" (click)="reset()">
+            reset
+        </button>
+    </div>
 </mat-card>
