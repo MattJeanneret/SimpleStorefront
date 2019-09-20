@@ -17,4 +17,8 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
+  public add(): void {
+    this.quantity++;
+  }
+
 }

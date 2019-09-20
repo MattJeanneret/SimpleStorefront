@@ -1,1 +1,9 @@
-<h4>{{product.name}}</h4>
+<mat-card color="primary">
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <img src="{{product.image}}">
+        <div>{{product.price | currency}}</div>
+        <div>amount: {{quantity}}</div>
+        <mat-card-actions><button mat-raised-button color="accent" (click)="add()">Add</button></mat-card-actions>
+</mat-card>
+
+

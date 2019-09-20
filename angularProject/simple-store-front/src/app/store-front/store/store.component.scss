@@ -9,7 +9,15 @@ mat-card {
     width: 85%;
     padding-top: 2%;
     margin:auto;
+
     mat-card-title {
         text-align: center;
+    }
+    mat-card-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 5px;
+
     }
 }

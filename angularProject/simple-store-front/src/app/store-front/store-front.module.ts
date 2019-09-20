@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StoreComponent } from './store/store.component';
 import {MatCardModule } from '@angular/material/card';
 import { ProductComponent } from './product/product.component';
+import {MatButtonModule} from '@angular/material/button'; 
 
 
 
@@ -10,7 +11,8 @@ import { ProductComponent } from './product/product.component';
   declarations: [StoreComponent, ProductComponent],
   imports: [
     CommonModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ]
 })
 export class StoreFrontModule { }
