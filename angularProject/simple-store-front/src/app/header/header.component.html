@@ -5,9 +5,9 @@
     </mat-menu>
     <span>Simple Store Front</span>
     <ng-container *ngIf="isLoggedIn">
-        <button mat-raised-button color="accent" (click)=logout()>Logout</button>
+        <button mat-raised-button color="accent" id="logout" (click)=logout()>Logout</button>
     </ng-container>
     <ng-container *ngIf="!isLoggedIn">
-        <button mat-raised-button color="accent" (click)=login()>Login</button>
+        <button mat-raised-button color="accent" id="login" (click)=login()>Login</button>
     </ng-container>
 </mat-toolbar>
