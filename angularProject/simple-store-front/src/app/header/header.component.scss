@@ -1,5 +1,12 @@
+a {
+    text-decoration: none;
+}
 button {
     height: 100%;
+    width: 5%;
+}
+span {
+    margin-left: -50%;
 }
 mat-toolbar {
     height: 40px;
@@ -7,7 +14,4 @@ mat-toolbar {
     justify-content: space-between;
     flex-basis: 100%;
     padding: 1px;
-}
-span {
-    margin-left: -50%;
 }

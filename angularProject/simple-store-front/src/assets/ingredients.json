@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "image": "grapefruit.png",
         "name": "grapefruit",
         "measure": "grapefruits",
@@ -8,7 +8,7 @@
         "stock": 100
     },
     {
-        "id": 2,
+        "id": "2",
         "image": "lemon.png",
         "name": "lemon",
         "measure": "lemons",
@@ -16,7 +16,7 @@
         "stock": 30
     },
     {
-        "id": 3,
+        "id": "3",
         "image": "sugar-cube.png",
         "name": "sugar",
         "measure": "oz",
@@ -24,7 +24,7 @@
         "stock": 1000
     },
     {
-        "id": 4,
+        "id": "4",
         "image": "water.png",
         "name": "water",
         "measure": "liters",

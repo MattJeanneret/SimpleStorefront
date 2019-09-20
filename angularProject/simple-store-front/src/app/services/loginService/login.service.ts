@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { IUser } from 'src/app/interface/IUser';
 
 //Maintains the logged in state of the app. 
@@ -33,18 +33,20 @@ export class LoginService {
   /**
    * Logins in the user
    */
-  public login() {
+  public login(): Observable<IUser> {
       let user = this.user;
       user.isLoggedIn = true;
       this.user = user;
+      return this.loginState$;
   }
 
   /**
    * logs out the user
    */
-  public logout() {
+  public logout(): Observable<IUser> {
     let user = this.user;
     this.user.isLoggedIn = false;
     this.user = user;
+    return this.loginState$;
   }
 }

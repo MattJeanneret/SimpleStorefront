@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule } from '@angular/router'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
@@ -36,7 +36,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatToolbarModule,
     MatDividerModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    RouterModule
   ],
   exports: [
     BrowserModule

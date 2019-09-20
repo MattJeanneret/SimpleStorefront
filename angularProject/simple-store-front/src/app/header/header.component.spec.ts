@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -8,7 +12,12 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [ HeaderComponent ],
+      imports: [
+        MatToolbarModule,
+        MatDividerModule,
+        MatMenuModule
+      ]
     })
     .compileComponents();
   }));

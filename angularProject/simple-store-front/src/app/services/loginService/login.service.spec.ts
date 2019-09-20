@@ -24,11 +24,17 @@ describe('LoginService', () => {
   });
 
   it('should login the user', (done) => {
-    loginSubscription = service.loginState$.subscribe((user:IUser) => {
+
+    loginSubscription = service.login().subscribe((user:IUser) => {
       expect(user.isLoggedIn).toBeTruthy();
       done();
     });
-    service.login();
-
   });
+
+  it("should logout the user", (done) => {
+    loginSubscription = service.logout().subscribe((user:IUser) => {
+      expect(user.isLoggedIn).toBeFalsy();
+      done();
+    });
+  })
 });
