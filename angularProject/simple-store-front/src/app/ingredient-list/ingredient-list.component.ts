@@ -14,14 +14,23 @@ export class IngredientListComponent implements OnInit, OnDestroy {
 
   public ingredients: IIngredient[] = [];
   
+  /**
+   * inject activated route
+   */
   constructor(private _route: ActivatedRoute) { }
 
+  /**
+   * Subscribe to the active route and retrieve ingredients from the route
+   */
   ngOnInit() {
   this._subscription = this._route.data.subscribe((response) => {
       this.ingredients = response.ingredients;
     })
   }
 
+  /**
+   * Remove any subscriptions (if any)
+   */
   ngOnDestroy() {
     if (this._subscription) {
       this._subscription.unsubscribe();

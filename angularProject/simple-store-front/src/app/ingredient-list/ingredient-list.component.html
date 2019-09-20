@@ -3,11 +3,16 @@
             <mat-expansion-panel-header>
                 {{ingredient.name}}
             </mat-expansion-panel-header>
-            <mat-list>
-                <mat-list-item>price: {{ingredient.price | currency}}</mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item>stock: {{ingredient.stock}} {{ingredient.measure}}</mat-list-item>
-            </mat-list>
+            <div class="ingredient-container">
+                    <img src="{{ingredient.image}}">
+                    <mat-card>
+                        <mat-list>
+                                <mat-list-item>measure: {{ingredient.measure}}</mat-list-item>
+                                <mat-list-item>amount: {{ingredient.stock}}</mat-list-item>
+                                <mat-list-item>cost: {{ingredient.price | currency}}</mat-list-item>
+                        </mat-list>
+                    </mat-card>
+            </div>
     </mat-expansion-panel>
 
 </div>

@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "name": "Lemonade",
+        "image": "yellow_lemonade.png",
+        "price": 1
+    },
+    {
+        "id": "2",
+        "name": "Pink Lemonade",
+        "image": "pink_lemonade.png",
+        "price": 1
+    },
+    {
+        "id": "3",
+        "name": "GrapeFruit Crush",
+        "image": "grapefruir.png",
+        "price": 1
+    }
+]

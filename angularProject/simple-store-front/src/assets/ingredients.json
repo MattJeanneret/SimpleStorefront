@@ -1,23 +1,23 @@
 [
     {
         "id": "1",
-        "image": "grapefruit.png",
+        "image": "assets/grapefruit.png",
         "name": "grapefruit",
-        "measure": "grapefruits",
+        "measure": "whole",
         "price": 2,
         "stock": 100
     },
     {
         "id": "2",
-        "image": "lemon.png",
+        "image": "assets/lemon.png",
         "name": "lemon",
-        "measure": "lemons",
+        "measure": "whole",
         "price": 0.5,
         "stock": 30
     },
     {
         "id": "3",
-        "image": "sugar-cube.png",
+        "image": "assets/sugar-cube.png",
         "name": "sugar",
         "measure": "oz",
         "price": 0.01,
@@ -25,7 +25,7 @@
     },
     {
         "id": "4",
-        "image": "water.png",
+        "image": "assets/water.png",
         "name": "water",
         "measure": "liters",
         "price": 0,

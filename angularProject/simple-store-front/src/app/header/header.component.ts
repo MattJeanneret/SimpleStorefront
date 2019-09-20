@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LoginService } from '../services/loginService/login.service';
 import { IUser } from '../interface/IUser';
@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public isLoggedIn: boolean;
 
-  constructor(loginService: LoginService, private _changeDetectorRef: ChangeDetectorRef) {
+  constructor(loginService: LoginService) {
     this._loginService = loginService;
   }
 

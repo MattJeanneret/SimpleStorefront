@@ -1,9 +1,9 @@
 <mat-toolbar color="primary" class="header">
     <button mat-button [matMenuTriggerFor]="afterMenu">menu</button>
     <mat-menu #afterMenu="matMenu" xPosition="after">
+        <button mat-menu-item><a routerLink="/store" routerLinkActive="active">Home</a></button>
         <button mat-menu-item><a routerLink="/ingredients" routerLinkActive="active">Ingredients</a></button>
     </mat-menu>
-    <span>Simple Store Front</span>
     <ng-container *ngIf="isLoggedIn">
         <button mat-raised-button color="accent" id="logout" (click)=logout()>Logout</button>
     </ng-container>
