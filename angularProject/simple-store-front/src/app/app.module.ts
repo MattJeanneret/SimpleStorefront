@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import { HeaderComponent } from './header/header.component';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   exports: [
     BrowserModule
