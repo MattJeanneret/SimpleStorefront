@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IProduct } from '../interfaces/IProduct';
 import { Observable, Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { OutOfStockComponent } from '../out-of-stock/out-of-stock.component';
 
 @Component({
   selector: 'app-product',
@@ -16,12 +18,18 @@ export class ProductComponent implements OnInit {
   @Output() added = new EventEmitter<IProduct>()
 
   public quantity: number = 0;
+  private _intialStock: number;
 
   private _resetSubscription: Subscription;
 
+  constructor(public dialog: MatDialog) {
+    
+  }
   ngOnInit() {
+    this._intialStock = this.product.stock;
     this._resetSubscription = this.resetEvent.subscribe(() => {
       this.quantity = 0;
+      this.product.stock = this._intialStock;
     })
   }
 
@@ -36,8 +44,17 @@ export class ProductComponent implements OnInit {
    * @description increasees the quantity and alerts the parent the cart has been updated.
    */
   public add(): void {
-    this.quantity++;
-    this.added.emit(this.product);
+    // Simplified version of checking for ingredients stock. TODO map ingredients to components and use ingredients for out of stock conditions
+    if (this.product.stock <= 0) {
+      this.dialog.open(OutOfStockComponent, {
+        width: '250px'
+      });
+    } else {
+      this.quantity++;
+      this.product.stock--;
+      this.added.emit(this.product);
+    }
+
   }
 
 }

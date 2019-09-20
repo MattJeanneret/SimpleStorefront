@@ -3,18 +3,21 @@
         "id": "1",
         "name": "Lemonade",
         "image": "assets/yellow_lemonade.png",
-        "price": 1
+        "price": 1,
+        "stock": 10
     },
     {
         "id": "2",
         "name": "Pink Lemonade",
         "image": "assets/pink_lemonade.png",
-        "price": 1
+        "price": 1,
+        "stock": 10
     },
     {
         "id": "3",
         "name": "GrapeFruit Crush",
         "image": "assets/grapefruit.png",
-        "price": 1
+        "price": 1,
+        "stock": 10
     }
 ]
