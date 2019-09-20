@@ -11,9 +11,9 @@ import { ActivatedRoute } from '@angular/router';
 export class StoreComponent implements OnInit, OnDestroy {
 
   // The the total cost of all items in the cart
-  public totalCost: number;
+  public totalCost: number = 0;
 
-  //List of all products
+  //List of
   public products: IProduct[];
   // mapp of products. Name of product maps to an array of that product. 
   private _cart: Map<String, IProduct[]>;
@@ -53,6 +53,17 @@ export class StoreComponent implements OnInit, OnDestroy {
    */
   public reset(): void {
     this._cart = new Map<String, IProduct[]>();
+  }
+
+  public onAdded(product: IProduct): void {
+    if (!this._cart.get(product.name)) {
+      this._cart.set(product.name, [product])
+    } else {
+      let products: IProduct[] = this._cart.get(product.name);
+      products.push(product);
+      this._cart.set(product.name, products);
+    }
+    this.totalCost += product.price;
   }
 
 }

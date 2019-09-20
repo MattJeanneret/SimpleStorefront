@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IProduct } from '../interfaces/IProduct';
 
 @Component({
@@ -6,19 +6,21 @@ import { IProduct } from '../interfaces/IProduct';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
 
   @Input() product: IProduct;
 
+  @Output() added = new EventEmitter<IProduct>()
+
   public quantity: number = 0;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  /**
+   * @name add
+   * @description increasees the quantity and alerts the parent the cart has been updated.
+   */
   public add(): void {
     this.quantity++;
+    this.added.emit(this.product);
   }
 
 }
