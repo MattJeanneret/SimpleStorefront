@@ -30,6 +30,9 @@ export class ProductComponent implements OnInit, OnDestroy {
     
   }
 
+  /**
+   * Subscribe to the reset trigger from the parent. Reset quantity to zero when reseting the cart
+   */
   ngOnInit() {
     this._subscription = this.resetTrigger.subscribe(() => {
       this.quantity = 0;

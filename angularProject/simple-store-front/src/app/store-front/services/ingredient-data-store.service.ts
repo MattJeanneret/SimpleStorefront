@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable, BehaviorSubject } from 'rxjs';
 import { IIngredient } from 'src/app/ingredients/interfaces/IIngredient';
+import {cloneDeep} from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class IngredientDataStoreService {
       ingredientMap.set(ingredient.name, ingredient.stock);
     }
     this._dataStore.next(ingredientMap);
-    this._initialDataStore = ingredientMap;
+    this._initialDataStore = cloneDeep(ingredientMap);
     return this.$dataStore;
   }
 
@@ -56,7 +57,7 @@ export class IngredientDataStoreService {
    * Resets the store to it initial state
    */
   public resetStore(): Observable<Map<String, number>> {
-    this._dataStore.next(this._initialDataStore);
+    this._dataStore.next(cloneDeep(this._initialDataStore));
     return this.$dataStore;
   }
 }

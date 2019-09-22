@@ -31,6 +31,9 @@ export class StoreComponent implements OnInit, OnDestroy {
   //inject activated route into the component
   constructor(private _route: ActivatedRoute, private _ingredientDataStore: IngredientDataStoreService) { }
 
+  /**
+   * initialize the cart. Get route params and then create the shared data store of ingredients
+   */
   ngOnInit() {
     this._cart = new Map<String, IRecipe[]>();
     this._subscription = this._route.data.subscribe((response) => {
@@ -42,6 +45,9 @@ export class StoreComponent implements OnInit, OnDestroy {
     })
   }
 
+  /**
+   * Unsubscribe from all subcriptions
+   */
   ngOnDestroy() {
     if (this._subscription) {
       this._subscription.unsubscribe();
@@ -59,7 +65,7 @@ export class StoreComponent implements OnInit, OnDestroy {
 
   /**
    * @name reset
-   * @description resets the cart to be empty
+   * @description resets the cart to be empty, resets the store, resets the total cost and tells child components that the cart has been reset
    * @returns {void}
    */
   public reset(): void {
@@ -69,6 +75,9 @@ export class StoreComponent implements OnInit, OnDestroy {
     this.resetSubject.next();
   }
 
+  /**
+   * Triggered by an event emitter in the child component. Adds the item to the cart and updates the running total
+   */
   public onAdded(product: IRecipe): void {
     if (!this._cart.get(product.name)) {
       this._cart.set(product.name, [product])
