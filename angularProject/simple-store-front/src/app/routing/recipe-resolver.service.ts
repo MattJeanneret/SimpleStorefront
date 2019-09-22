@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { ProductService } from '../store-front/services/product.service';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { IProduct } from '../store-front/interfaces/IProduct';
+import { RecipeService } from '../store-front/services/recipe.service';
+import { IRecipe } from '../store-front/interfaces/IRecipe';
 
 // Guard to get a list of products upon loading store
 @Injectable({
   providedIn: 'root'
 })
-export class ProductResolverService {
+export class RecipeResolverService {
 
-  constructor(private _productService: ProductService) {}
+  constructor(private _recipeService: RecipeService) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<IProduct[]> {
-    return this._productService.getProducts();
+  ): Observable<IRecipe[]> {
+    return this._recipeService.getRecipes();
   }
 }

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { IngredientService } from './ingredient.service';
-import { IIngredient } from 'src/app/interface/IIngredient';
+import { IIngredient } from 'src/app/ingredients/interfaces/IIngredient';
 import { HttpClient } from '@angular/common/http';
 
 describe('IngredientService', () => {

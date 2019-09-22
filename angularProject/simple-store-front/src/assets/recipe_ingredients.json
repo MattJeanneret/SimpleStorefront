@@ -1,0 +1,49 @@
+[
+    {
+        "id": 1,
+        "quantity": 1,
+        "name": "lemon"
+    },
+    {
+        "id": 2,
+        "quantity": 1,
+        "name": "sugar"
+    },
+    {
+        "id": 3,
+        "quantity": 1,
+        "name": "water"
+    },
+    {
+        "id": 4,
+        "quantity": 1,
+        "name": "lemon"
+    },
+    {
+        "id": 5,
+        "quantity": 2,
+        "name": "sugar"
+    },
+    {
+        "id": 6,
+        "quantity": 1,
+        "name": "water"
+    },
+    {
+        "id": 7,
+        "quantity": 1,
+        "name": "grapefruit"
+    },
+    {
+        "id": 8,
+        "quantity": 0.5,
+        "name": "sugar"
+    },
+    {
+        "id": 9,
+        "quantity": 1,
+        "name": "water"
+    }
+
+
+]

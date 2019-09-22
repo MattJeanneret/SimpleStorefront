@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IIngredient } from '../interface/IIngredient';
+import { IIngredient } from '../interfaces/IIngredient';
 import {ActivatedRoute } from '@angular/router';
 
 @Component({

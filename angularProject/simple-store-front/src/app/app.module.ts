@@ -6,22 +6,23 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { IngredientListComponent } from './ingredient-list/ingredient-list.component';
+import { IngredientListComponent } from './ingredients/ingredient-list/ingredient-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatCardModule} from "@angular/material/card";
-import {MatExpansionModule} from '@angular/material/expansion';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatDividerModule} from '@angular/material/divider';
-import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import { StoreFrontModule } from './store-front/store-front.module';
+import { IngredientsModule } from './ingredients/ingredients.module';
 
+/**
+ * Module for the main app
+ */
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    IngredientListComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -31,13 +32,12 @@ import { StoreFrontModule } from './store-front/store-front.module';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
-    MatExpansionModule,
     MatToolbarModule,
     MatDividerModule,
-    MatListModule,
     MatMenuModule,
     RouterModule,
-    StoreFrontModule
+    StoreFrontModule,
+    IngredientsModule
   ],
   exports: [
     BrowserModule

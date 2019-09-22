@@ -1,23 +1,23 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "name": "Lemonade",
         "image": "assets/yellow_lemonade.png",
         "price": 1,
-        "stock": 10
+        "recipeIngredients": [1, 2, 3]
     },
     {
-        "id": "2",
+        "id": 2,
         "name": "Pink Lemonade",
         "image": "assets/pink_lemonade.png",
         "price": 1,
-        "stock": 10
+        "recipeIngredients": [4, 5, 6]
     },
     {
-        "id": "3",
+        "id": 3,
         "name": "GrapeFruit Crush",
         "image": "assets/grapefruit.png",
         "price": 1,
-        "stock": 10
+        "recipeIngredients": [7, 8, 9]
     }
 ]

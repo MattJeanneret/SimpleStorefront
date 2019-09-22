@@ -1,5 +1,5 @@
 export interface IIngredient {
-    id: string;
+    id: number;
     image: string;
     name: string;
     measure: string;

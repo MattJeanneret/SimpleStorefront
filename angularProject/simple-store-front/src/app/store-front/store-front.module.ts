@@ -8,7 +8,9 @@ import { OutOfStockComponent } from './out-of-stock/out-of-stock.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 
-
+/**
+ * Module for maintaining the store front
+ */
 @NgModule({
   declarations: [StoreComponent, ProductComponent, OutOfStockComponent],
   imports: [

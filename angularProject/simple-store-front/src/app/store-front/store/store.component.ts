@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { IProduct } from '../interfaces/IProduct';
 import { Subscription, Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { IRecipe } from '../interfaces/IRecipe';
+import { IngredientDataStoreService } from '../services/ingredient-data-store.service';
+import { IRecipeIngredient } from '../interfaces/IRecipeIngredient';
 
 @Component({
   selector: 'app-store',
@@ -13,23 +15,28 @@ export class StoreComponent implements OnInit, OnDestroy {
   // The the total cost of all items in the cart
   public totalCost: number = 0;
 
-  //List of
-  public products: IProduct[];
+  //List of products
+  public products: IRecipe[];
+
+  public recipeIngredients: Map<number, IRecipeIngredient> = new Map<number, IRecipeIngredient>();
+ 
   // mapp of products. Name of product maps to an array of that product. 
-  private _cart: Map<String, IProduct[]>;
+  private _cart: Map<String, IRecipe[]>;
 
   // Subscription to the activated route
   private _subscription: Subscription;
 
-
-  private _resetSubject: Subject<void> = new Subject<void>();
   //inject activated route into the component
-  constructor(private _route: ActivatedRoute) { }
+  constructor(private _route: ActivatedRoute, private _ingredientDataStore: IngredientDataStoreService) { }
 
   ngOnInit() {
-    this._cart = new Map<String, IProduct[]>();
+    this._cart = new Map<String, IRecipe[]>();
     this._subscription = this._route.data.subscribe((response) => {
       this.products = response.products;
+      for (let recipeIngredient of response.recipeIngredients) {
+        this.recipeIngredients.set(recipeIngredient.id, recipeIngredient);
+      }
+      this._ingredientDataStore.createDataStore(response.ingredients);
     })
   }
 
@@ -54,16 +61,16 @@ export class StoreComponent implements OnInit, OnDestroy {
    * @returns {void}
    */
   public reset(): void {
-    this._cart = new Map<String, IProduct[]>();
-    this._resetSubject.next();
+    this._cart = new Map<String, IRecipe[]>();
+    this._ingredientDataStore.resetStore();
     this.totalCost = 0;
   }
 
-  public onAdded(product: IProduct): void {
+  public onAdded(product: IRecipe): void {
     if (!this._cart.get(product.name)) {
       this._cart.set(product.name, [product])
     } else {
-      let products: IProduct[] = this._cart.get(product.name);
+      let products: IRecipe[] = this._cart.get(product.name);
       products.push(product);
       this._cart.set(product.name, products);
     }

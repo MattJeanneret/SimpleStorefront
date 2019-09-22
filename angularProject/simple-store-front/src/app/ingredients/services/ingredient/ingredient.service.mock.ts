@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { IIngredient } from 'src/app/interface/IIngredient';
 import { of } from 'rxjs';
+import { IIngredient } from '../../interfaces/IIngredient';
 
 @Injectable({
     providedIn: 'root'
