@@ -34,6 +34,12 @@ describe('HeaderComponent', () => {
     loginService = TestBed.get(LoginService);
   });
 
+  afterEach(() => {
+    if (fixture) {
+      fixture.destroy()
+    }
+  })
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });

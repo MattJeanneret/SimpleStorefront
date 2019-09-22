@@ -22,6 +22,12 @@ describe('OutOfStockComponent', () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    if (fixture) {
+      fixture.destroy()
+    }
+  })
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });

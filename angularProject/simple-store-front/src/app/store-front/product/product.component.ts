@@ -52,15 +52,6 @@ export class ProductComponent {
       this.quantity += 1;
       this.added.emit(this.product);
     }
-    // Simplified version of checking for ingredients stock. TODO map ingredients to components and use ingredients for out of stock conditions
-    /*if (this.product.stock <= 0) {
-
-    } else {
-      this.quantity++;
-      this.product.stock--;
-      this.added.emit(this.product);
-    }*/
-
   }
 
 }

@@ -1,8 +1,8 @@
 <mat-card color="primary">
         <mat-card-title>{{product.name}}</mat-card-title>
         <img src="{{product.image}}">
-        <div>{{product.price | currency}}</div>
-        <div>amount: {{quantity}}</div>
+        <div id="price">{{product.price | currency}}</div>
+        <div id="amount">amount: {{quantity}}</div>
         <mat-card-actions><button mat-raised-button color="accent" (click)="add()">Add</button></mat-card-actions>
 </mat-card>
 

@@ -26,11 +26,16 @@ describe('StoreComponent', () => {
   }));
 
   beforeEach(() => {
-    ActivatedRoute
     fixture = TestBed.createComponent(StoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
+  afterEach(() => {
+    if (fixture) {
+      fixture.destroy()
+    }
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();

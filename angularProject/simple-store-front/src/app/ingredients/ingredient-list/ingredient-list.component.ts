@@ -10,9 +10,9 @@ import {ActivatedRoute } from '@angular/router';
 })
 export class IngredientListComponent implements OnInit, OnDestroy {
 
-  private _subscription: Subscription;
-
   public ingredients: IIngredient[] = [];
+
+  private _subscription: Subscription;
   
   /**
    * inject activated route
@@ -23,7 +23,7 @@ export class IngredientListComponent implements OnInit, OnDestroy {
    * Subscribe to the active route and retrieve ingredients from the route
    */
   ngOnInit() {
-  this._subscription = this._route.data.subscribe((response) => {
+    this._subscription = this._route.data.subscribe((response) => {
       this.ingredients = response.ingredients;
     })
   }
