@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OutOfStockComponent } from './out-of-stock.component';
+import { MatDialogModule, MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('OutOfStockComponent', () => {
   let component: OutOfStockComponent;
@@ -8,8 +10,9 @@ describe('OutOfStockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OutOfStockComponent ]
-    })
+      imports: [MatDialogModule, BrowserAnimationsModule],
+      declarations: [ OutOfStockComponent ],
+    providers:[{ provide: MatDialogRef, useValue: {} }]    })
     .compileComponents();
   }));
 

@@ -30,7 +30,7 @@ describe('IngredientService', () => {
   it('should make a get request to the correct url', () => {
     const testData: IIngredient[] = [
       {
-        id: "3",
+        id: 3,
         image: "sugar-cube.png",
         name: "sugar",
         measure: "oz",
