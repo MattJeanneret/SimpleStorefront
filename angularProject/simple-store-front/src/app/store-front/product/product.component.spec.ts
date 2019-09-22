@@ -7,6 +7,7 @@ import { IRecipe } from '../interfaces/IRecipe';
 import { IRecipeIngredient } from '../interfaces/IRecipeIngredient';
 import { formatCurrency } from '@angular/common';
 import { IngredientDataStoreService } from '../services/ingredient-data-store.service';
+import { Subject } from 'rxjs';
 
 describe('ProductComponent', () => {
   let parentComponent: ProductHostComponent;
@@ -61,6 +62,14 @@ describe('ProductComponent', () => {
     const expectedAmount = `amount: ${component.quantity}`;
     expect(amountElement.innerHTML).toEqual(expectedAmount);
   });
+
+  it('should reset quantity to zero', async(() => {
+    component.quantity = 4;
+    parentComponent.subject.subscribe(() => {
+      expect(component.quantity).toEqual(0);
+    })
+    parentComponent.subject.next();
+  }));
 
   describe('add', () => {
     let dialogSpy;
@@ -165,7 +174,7 @@ describe('ProductComponent', () => {
 
 @Component({
   template: `
-    <app-product [product]="product" [recipeIngredients]="recipeIngredients" (added)="onAdded($event)"></app-product>
+    <app-product [product]="product" [recipeIngredients]="recipeIngredients" [resetTrigger]="subject.asObservable()" (added)="onAdded($event)"></app-product>
   `
 })
 class ProductHostComponent implements OnInit {
@@ -198,6 +207,8 @@ class ProductHostComponent implements OnInit {
         "name": "water"
     })
   }
+
+  public subject: Subject<void> = new Subject<void>();
 
   public onAdded(recipe: IRecipe): void {}
 

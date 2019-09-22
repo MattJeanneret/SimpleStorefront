@@ -19,8 +19,10 @@ export class StoreComponent implements OnInit, OnDestroy {
   public products: IRecipe[];
 
   public recipeIngredients: Map<number, IRecipeIngredient> = new Map<number, IRecipeIngredient>();
+
+  public resetSubject: Subject<void> = new Subject<void>();
  
-  // mapp of products. Name of product maps to an array of that product. 
+  // mapp of products. Name of product maps to an array of that product. TODO wrap the cart in a service
   private _cart: Map<String, IRecipe[]>;
 
   // Subscription to the activated route
@@ -64,6 +66,7 @@ export class StoreComponent implements OnInit, OnDestroy {
     this._cart = new Map<String, IRecipe[]>();
     this._ingredientDataStore.resetStore();
     this.totalCost = 0;
+    this.resetSubject.next();
   }
 
   public onAdded(product: IRecipe): void {

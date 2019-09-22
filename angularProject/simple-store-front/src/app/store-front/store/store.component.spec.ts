@@ -40,4 +40,31 @@ describe('StoreComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should add an item to the cart', () => {
+    component.onAdded(    {
+        "id": 1,
+        "name": "Lemonade",
+        "image": "assets/yellow_lemonade.png",
+        "price": 1,
+        "recipeIngredients": [1, 2, 3]
+    });
+
+    expect(component.totalCost).toEqual(1);
+  });
+
+  it('should reset the total cost to zero', () => {
+    component.onAdded(    {
+        "id": 1,
+        "name": "Lemonade",
+        "image": "assets/yellow_lemonade.png",
+        "price": 1,
+        "recipeIngredients": [1, 2, 3]
+    });
+
+    component.reset();
+
+    expect(component.totalCost).toEqual(0);
+
+  })
 });

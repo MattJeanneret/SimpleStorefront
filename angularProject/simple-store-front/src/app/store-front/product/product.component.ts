@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { OutOfStockComponent } from '../out-of-stock/out-of-stock.component';
@@ -11,20 +11,35 @@ import { IRecipeIngredient } from '../interfaces/IRecipeIngredient';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit, OnDestroy {
 
   @Input() product: IRecipe;
 
   //TODO either make this its own request, extract from the route, or get them each one by one. Unsure of the best approach
   @Input() recipeIngredients: Map<number, IRecipeIngredient>;
 
+  @Input() resetTrigger: Observable<void>;
+
   @Output() added = new EventEmitter<IRecipe>()
 
   public quantity: number = 0;
 
+  private _subscription: Subscription;
 
   constructor(public dialog: MatDialog, private _dataStore: IngredientDataStoreService) {
     
+  }
+
+  ngOnInit() {
+    this._subscription = this.resetTrigger.subscribe(() => {
+      this.quantity = 0;
+    })
+  }
+
+  ngOnDestroy() {
+    if (this._subscription) {
+      this._subscription.unsubscribe();
+    }
   }
 
   /**
@@ -52,6 +67,8 @@ export class ProductComponent {
       this.quantity += 1;
       this.added.emit(this.product);
     }
+
+
   }
 
 }
